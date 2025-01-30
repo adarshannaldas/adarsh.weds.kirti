@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Poiret+One&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poiret One', sans-serif;
+}
+
+/* Global styles */
+body {
+  background-color: white;
+  color: #333;
+  font-family: 'Poiret One', sans-serif;
+  line-height: 1.6;
+  opacity: 0; /* Initially set the body opacity to 0 */
+  animation: fadeIn 2s forwards, slideIn 2s forwards; /* Apply fade-in and sliding effect */
+  
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Sliding animation */
+@keyframes slideIn {
+  0% {
+    transform: translateY(20px); /* Start 20px below */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); /* Slide to the original position */
+    opacity: 1;
+  }
+}
+
+/* Centered header styling */
+h2 {
+  font-family: 'Caveat', sans-serif;
+  font-size: 2.5rem;
+  margin-top: px;
+  text-align: center;
+  color: #df3c01;
+  opacity: 0;
+  animation: fadeIn 2s forwards 0.5s, slideIn 2s forwards 0.5s; /* Apply both fade and slide animation */
+}
+
+/* Grid container styling */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 1.5em;
+  grid-row-gap: 1.5em;
+  justify-items: center;
+  align-items: center;
+  padding: 3.5rem;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(135deg, rgba(236, 233, 230, 0.7), rgba(255, 255, 255, 0.7)), url('VAI0565.JPG');
+  background-size: cover; /* Make sure the background covers the entire area */
+  background-position: center;
+  background-attachment: fixed;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 90%;
+  opacity: 0;
+  animation: fadeIn 2s forwards 1s, slideIn 2s forwards 1s; /* Fade and slide in after header */
+  position: relative; /* For overlay effect */
+}
+
+.grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(235 228 228 / 0%); /* Semi-transparent black overlay */
+  border-radius: 10px;
+  z-index: 1;
+}
+
+ 
+/* Hover effects for the grid */
+.grid:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 650px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Show 2 images per row */
+    justify-items: center;
+    gap: 1.5em;
+    padding: 20px;
+  }
+
+  .grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+/* Image styling */
+.grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeIn 3s forwards 3s, slideIn 3s forwards 2.5s; /* Delay for images to fade and slide in after grid */
+}
+
+.grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Bottom SVG styling */
+svg {
+  width: 100%;
+  display: block;
+  margin-top: 2px;
+  fill: #df3c01;
+  padding-left: 20px;
+  padding-right: 20px;
+  opacity: 0;
+  animation: fadeIn 2s forwards 2s, slideIn 2s forwards 2s; /* Delay for SVG to fade and slide in last */
+}
+
+/* Optional text styling */
+p {
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+  margin: 10px 0;
+}

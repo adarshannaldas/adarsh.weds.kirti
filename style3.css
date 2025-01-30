@@ -1,0 +1,228 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: 
+        linear-gradient(
+            rgba(0, 0, 0, 0.3), 
+            rgba(0, 0, 0, 0.3)
+        ), 
+        url('VAI0554.JPG');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #fff; /* Make text color light for contrast */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px;
+    height: 104vh;
+    /* background-color: #fff; */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styles */
+.heading {
+    text-align: center;
+    font-size: 3.5rem;
+    color: #d26e00;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 0px;
+}
+
+/* Divider */
+.divider {
+    height: 5px;
+    background-color: #d26e00;
+    width: 70px;
+    margin: 20px auto;
+    border-radius: 50px;
+}
+
+/* SVG Container */
+.svg-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.svg-container svg {
+    width: 120px;
+    height: auto;
+}
+
+/* Event Details Section */
+.event-details {
+    text-align: center;
+    padding: 30px;
+    margin-top: 10px;
+    background: #fdfdfda8;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Date and Time */
+.date, .time {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #555;
+    margin: 12px 0;
+}
+
+/* Save the Date Section */
+.save-date {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.8rem;
+    color: #d26e00;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: color 0.3s ease;
+}
+
+.save-date:hover {
+    color: #e89c47;
+}
+
+.save-date .save-icon {
+    margin-right: 10px;
+    width: 28px;
+    height: 28px;
+}
+
+/* Venue Section */
+.venue-title {
+    font-size: 1.6rem;
+    color: #333;
+    margin-top: 30px;
+    font-weight: 500;
+}
+
+.venue {
+    font-size: 1.1rem;
+    color: white;
+    margin: 5px 0;
+    line-height: 1.6;
+    max-width: 80%;
+    margin: 10px auto;
+    text-align: center;
+}
+
+/* Open Maps Section */
+.open-maps {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.4rem;
+    color: #007bff;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: color 0.3s ease;
+}
+
+.open-maps:hover {
+    color: #0056b3;
+}
+
+.open-maps .map-icon {
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+}
+
+/* Contact Section */
+.contact-title {
+    font-size: 1.6rem;
+    color: #333;
+    margin-top: 30px;
+    font-weight: 500;
+}
+
+.contact {
+    font-size: 1.1rem;
+    color: #777;
+    margin: 5px 0;
+    line-height: 1.6;
+}
+
+/* Call Section */
+.call {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.4rem;
+    color: #28a745;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: color 0.3s ease;
+}
+
+.call:hover {
+    color: #218838;
+}
+
+.call .call-icon {
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+}
+
+/* Add some spacing between sections for clarity */
+.event-details > div {
+    margin-bottom: 20px;
+}
+
+/* Animations for Icons and Text */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.save-date, .open-maps, .call {
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.save-date:hover, .open-maps:hover, .call:hover {
+    animation: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .heading {
+        font-size: 2.5rem;
+    }
+
+    .date, .time {
+        font-size: 1.4rem;
+    }
+
+    .save-date {
+        font-size: 1.6rem;
+    }
+
+    .venue {
+        font-size: 1rem;
+    }
+}
+

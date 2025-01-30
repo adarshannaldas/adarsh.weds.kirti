@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation</title>
+    <style>
+        /* Background Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ensures full-screen height */
+            background: url('VAI0562.JPG') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed; /* Keeps the background fixed while scrolling */
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        /* Main Container */
+        .container {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Heading */
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 377px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Subheading */
+        h2 {
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Play Song Button Styling */
+        #playPauseBtn {
+            padding: 12px 30px;
+            font-size: 18px;
+            background-color: #ff4081; /* Vibrant pink color */
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+        }
+
+        #playPauseBtn:hover {
+            background-color: #f50057; /* Slightly darker pink */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        #playPauseBtn:focus {
+            outline: none; /* Removes default focus outline */
+        }
+
+        #playPauseBtn:active {
+            transform: scale(0.98); /* Slightly shrink when clicked */
+        }
+
+        /* Adding a visual state to indicate whether the audio is playing */
+        .playing {
+            background-color: #388e3c; /* Green color for playing */
+            color: white;
+        }
+
+        .paused {
+            background-color: #ff4081; /* Default pink color for paused */
+            color: white;
+        }
+
+        /* Indicator Icon */
+        #indicator {
+            margin-left: 10px;
+        }
+
+        .playing #indicator::after {
+            content: "🎶"; /* Music notes when playing */
+        }
+
+        .paused #indicator::after {
+            content: "⏸️"; /* Pause symbol when paused */
+        }
+    </style>
+</head>
+<body>
+    <!-- Audio Player with Controls -->
+    <audio id="background-audio" loop>
+        <source src="song.mpeg" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Initial Content to show -->
+    <div id="initial-content" class="container">
+        <h1>💖 Adarsh & Kirti 💖</h1>
+        <h2>Welcome to Our Special Day</h2>
+        <br>
+        <button id="playPauseBtn" class="paused">
+            Play Song
+            <span id="indicator"></span> <!-- Indicator for visual feedback -->
+        </button>
+    </div><br><br><br>
+    
+    <!-- iframe to show the other pages -->
+    <iframe id="page-frame" style="width: 100%; height: 100vh; border: none; display: none;"></iframe>
+
+    <script>
+        // Get the audio element and play/pause button
+        const audio = document.getElementById('background-audio');
+        audio.currentTime = 10;
+        const playPauseBtn = document.getElementById('playPauseBtn');
+
+        // Function to toggle play/pause
+        playPauseBtn.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play(); // Play the audio
+                playPauseBtn.textContent = 'Pause Song'; // Change button text
+                playPauseBtn.classList.remove('paused'); // Remove paused class
+                playPauseBtn.classList.add('playing'); // Add playing class
+            } else {
+                audio.pause(); // Pause the audio
+                playPauseBtn.textContent = 'Play Song'; // Change button text
+                playPauseBtn.classList.remove('playing'); // Remove playing class
+                playPauseBtn.classList.add('paused'); // Add paused class
+            }
+        });
+
+        // List of pages to be displayed after the initial page
+        const pages = ["first.html", "second.html", "third.html"];
+        let currentPageIndex = 0;
+
+        // Show the initial content for 3 seconds, then hide it and show the iframe
+        setTimeout(() => {
+            document.getElementById("initial-content").style.display = "none";  // Hide initial content
+            document.getElementById('page-frame').style.display = "block";  // Show iframe
+            document.getElementById('page-frame').src = pages[currentPageIndex]; // Load the first page
+            document.getElementById('playPauseBtn').style.display = "none";  // Hide the play/pause button
+        }, 4000); // Display initial content for 3 seconds
+
+        // Function to change to the next page
+        function changePage() {
+            if (currentPageIndex < pages.length - 1) {
+                currentPageIndex++; // Move to the next page
+                document.getElementById('page-frame').src = pages[currentPageIndex]; // Change iframe src
+            } else {
+                clearInterval(pageChangeInterval); // Stop the interval when last page is reached
+            }
+        }
+
+        
+
+            const pageChangeInterval = setInterval(changePage, 14000);
+        
+      
+    </script>
+</body>
+</html>
